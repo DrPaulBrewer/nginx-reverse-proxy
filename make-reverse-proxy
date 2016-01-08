@@ -1,0 +1,5 @@
+#!/bin/bash
+export APP_ADDR=$(echo $APP_PORT | sed -e 's/tcp:\/\///;')
+sed -e "s/APP_ADDR/$APP_ADDR/" /etc/reverse-proxy-template > /etc/nginx/conf.d/reverse-proxy.conf
+nginx -g "daemon off;"
+
